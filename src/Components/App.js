@@ -13,10 +13,13 @@ class App extends React.Component {
     this.state = {
       data: [],
       input: "",
+      gender: "",
+      species: ""
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleInput = this.handleInput.bind(this);
-
+    this.handleGender = this.handleGender.bind(this);
+    this.handleSpecies = this.handleSpecies.bind(this);
   }
 
   componentDidUpdate(){
@@ -37,7 +40,6 @@ class App extends React.Component {
   }
 
   renderCharacterDetail(props) {
-    console.log(props);
     const urlId = props.match.params.id;
     const characters = this.state.data;
     for (let characterObj of characters) {
@@ -50,18 +52,28 @@ class App extends React.Component {
     this.setState({
       input: inputValue,
     });
+    }
+  handleGender(inputValue) {
+    this.setState({
+      gender: inputValue,
+    })
+  }
+  handleSpecies(inputValue) {
+    this.setState({
+      species: inputValue,
+    })
   }
   
 
   render() {
-    const { data, input } = this.state;
+    const { data, input, gender, species } = this.state;
     return (
       <div className="App">
         <Header />
         <Switch>
           <Route exact path="/">
-            <Filters handleInput={this.handleInput} input={input}/>
-            <CharacterList dataList={data} input={input} />
+            <Filters handleInput={this.handleInput} handleGender={this.handleGender} handleSpecies={this.handleSpecies} input={input} gender={gender} species={species}/>
+            <CharacterList dataList={data} input={input} gender={gender} species={species}/>
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />
         </Switch>

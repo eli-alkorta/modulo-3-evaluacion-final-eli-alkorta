@@ -2,13 +2,17 @@ import React from "react";
 import CharacterCard from "./CharacterCard";
 import { Link } from 'react-router-dom';
 
+
 const CharacterList = (props) => {
   return (
+  
     <ul className="characterList">
       {props.dataList
       .filter(characterObj => props.input === '' || characterObj.name.toLowerCase().includes(props.input.toLowerCase()))
+      .filter(characterObj => props.gender === '' || characterObj.gender === props.gender)
+      .filter(characterObj => props.species=== '' || characterObj.species === props.species)
       .map(characterObj => 
-        <li key={characterObj.id} className="characterItem">
+        <li key={characterObj.id} className="characterItem"> 
            <Link to={`/character/${characterObj.id}`}>
           <CharacterCard
             photo={characterObj.image}
@@ -16,8 +20,12 @@ const CharacterList = (props) => {
             species={characterObj.species}
           />
           </Link>
-        </li>
+        </li>     
       )}
-    </ul>
-  )}
+    </ul>    
+  )};
+
+
+
+
 export default CharacterList;

@@ -23,8 +23,15 @@ a{
 }
 .filters{
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    align-items: center;
+   justify-content: center;
+   .genderContainer{
+      margin-right: 80px;
+      input{
+         margin: 10px;
+      }
+   }
    .search{
       width: 250px;
       margin-bottom: 20px;
@@ -32,8 +39,15 @@ a{
       background-color: black;
       color: white;
       font-size: 16px;
+     
       &:focus{
          border: 2px solid rgb(0, 170, 228);
+      }
+   }
+   .speciesContainer{
+      margin-left: 80px;
+      input{
+         margin: 10px;
       }
    }
    
@@ -107,6 +121,12 @@ a{
    min-height: 61vh;
    .characterItem{
       padding: 20px;
+      .hidden{
+         display: none;
+      }
+      .active{
+         display: block;
+      }
       .cardContainer{
          background-color: rgb(0, 170, 228);
       }

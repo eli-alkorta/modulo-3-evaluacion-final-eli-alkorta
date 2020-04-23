@@ -11,4 +11,6 @@ const CharacterCard = (props) => {
     </div>
   );
 };
+
+
 export default CharacterCard;
