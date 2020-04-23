@@ -14,7 +14,7 @@ class App extends React.Component {
       data: [],
       input: "",
       gender: "",
-      species: ""
+      species: "",
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -22,17 +22,18 @@ class App extends React.Component {
     this.handleSpecies = this.handleSpecies.bind(this);
   }
 
-  componentDidUpdate(){
-    localStorage.setItem('data', JSON.stringify(this.state.input));
+  componentDidUpdate() {
+    localStorage.setItem("data", JSON.stringify(this.state.input));
   }
 
   componentDidMount() {
-    const localData = JSON.parse(localStorage.getItem('data'));
-    if(localData !== ''){
+    const localData = JSON.parse(localStorage.getItem("data"));
+    if (localData !== null) {
       this.setState({
-        input: localData})}
-    fetchCharacters()
-    .then((data) => {
+        input: localData,
+      });
+    }
+    fetchCharacters().then((data) => {
       this.setState({
         data: data.results,
       });
@@ -52,18 +53,17 @@ class App extends React.Component {
     this.setState({
       input: inputValue,
     });
-    }
+  }
   handleGender(inputValue) {
     this.setState({
       gender: inputValue,
-    })
+    });
   }
   handleSpecies(inputValue) {
     this.setState({
       species: inputValue,
-    })
+    });
   }
-  
 
   render() {
     const { data, input, gender, species } = this.state;
@@ -72,8 +72,20 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/">
-            <Filters handleInput={this.handleInput} handleGender={this.handleGender} handleSpecies={this.handleSpecies} input={input} gender={gender} species={species}/>
-            <CharacterList dataList={data} input={input} gender={gender} species={species}/>
+            <Filters
+              handleInput={this.handleInput}
+              handleGender={this.handleGender}
+              handleSpecies={this.handleSpecies}
+              input={input}
+              gender={gender}
+              species={species}
+            />
+            <CharacterList
+              dataList={data}
+              input={input}
+              gender={gender}
+              species={species}
+            />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />
         </Switch>
