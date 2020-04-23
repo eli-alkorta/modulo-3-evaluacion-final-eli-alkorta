@@ -14,6 +14,7 @@ a{
    display: flex;
    flex-direction: row;
    justify-content: center;
+   height: 30vh;
    .logo{
       padding-top: 30px;
       padding-bottom: 30px;
@@ -29,20 +30,27 @@ a{
       margin-bottom: 20px;
       padding: 5px;
       background-color: black;
+      color: white;
+      font-size: 16px;
       &:focus{
          border: 2px solid rgb(0, 170, 228);
-         color: white;
-         font-size: 16px;
       }
    }
    
 }
+
 .detailWrapper{
-   height: 100vh;
+   height: 70vh;
    display: flex;
    flex-direction: column;
    align-items: center;
-   justify-content: center;
+   .return{
+      margin-bottom: 10px;
+      margin-left: 550px;
+      &:hover{
+         color: rgb(0, 170, 228);
+      }
+   }
    .detailCard{
       background-color: rgb(0, 170, 228);
       height: 350px;
@@ -75,6 +83,20 @@ a{
    span{
       padding: 3px;
    }
+   .hidden{
+      display: none;
+   }
+   .active{
+      display: block;
+   }
+   .iconContainer{
+      display: flex;
+      flex-direction: row;
+   }
+   #icon{
+      margin: 0 3px 3px 3px;
+      
+   }
 }
 
 .characterList{
@@ -82,7 +104,7 @@ a{
    flex-direction: row;
    flex-wrap: wrap;
    background-color: black;
-   min-height: 100vh;
+   min-height: 61vh;
    .characterItem{
       padding: 20px;
       .cardContainer{

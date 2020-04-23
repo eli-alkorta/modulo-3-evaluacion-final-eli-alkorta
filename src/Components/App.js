@@ -1,9 +1,9 @@
 import React from "react";
 import "../Stylesheets/App.scss";
-import Header from './Header';
+import Header from "./Header";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
-import Filters from './Filters';
+import Filters from "./Filters";
 import fetchCharacters from "../services/fetchCharacters";
 import { Route, Switch } from "react-router-dom";
 
@@ -12,19 +12,30 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: [],
-      input: ''
+      input: "",
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleInput = this.handleInput.bind(this);
+
+  }
+
+  componentDidUpdate(){
+    localStorage.setItem('data', JSON.stringify(this.state.input));
   }
 
   componentDidMount() {
-    fetchCharacters().then((data) => {
+    const localData = JSON.parse(localStorage.getItem('data'));
+    if(localData !== ''){
+      this.setState({
+        input: localData})}
+    fetchCharacters()
+    .then((data) => {
       this.setState({
         data: data.results,
       });
     });
   }
+
   renderCharacterDetail(props) {
     console.log(props);
     const urlId = props.match.params.id;
@@ -37,19 +48,20 @@ class App extends React.Component {
   }
   handleInput(inputValue) {
     this.setState({
-      input: inputValue
-    })
+      input: inputValue,
+    });
   }
+  
 
   render() {
     const { data, input } = this.state;
     return (
       <div className="App">
+        <Header />
         <Switch>
           <Route exact path="/">
-            <Header />
-            <Filters handleInput={this.handleInput}/>
-            <CharacterList dataList={data} input={input}/>
+            <Filters handleInput={this.handleInput} input={input}/>
+            <CharacterList dataList={data} input={input} />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />
         </Switch>

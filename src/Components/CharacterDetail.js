@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
   return (
      <div className="detailWrapper">
+        <Link to={"/"}>
+       <p className="return">Volver</p>
+       </Link>
     <div className="detailCard">
        <div className="photoContainer">
       <img
@@ -11,7 +15,13 @@ const CharacterDetail = (props) => {
         alt={props.character.name}
       />
       </div>
-      <div className="textDetail">       
+      
+      <div className="textDetail">   
+      <div className="iconContainer">
+      <i className={`fas fa-skull-crossbones ${props.character.status === 'Dead' ? "active" : "hidden"}`} id="icon"></i> 
+      <i className={`far fa-user ${props.character.species === 'Human' ? "active" : "hidden"}`} id="icon"></i>   
+      <i className={`fab fa-reddit-alien ${props.character.species === 'Alien' ? "active" : "hidden"}`} id="icon"></i>   
+      </div>
         <span className="nameDetail">{props.character.name}</span>
         <span className="statusDetail">Status: {props.character.status}</span>
         <span className="speciesDetail">Species: {props.character.species}</span>
