@@ -1,0 +1,125 @@
+.detailWrapper {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &.sunshine {
+    background-color: yellow;
+    color: black;
+  }
+  .return {margin-top: 10px;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: rgb(0, 170, 228);
+    }
+  }
+  .detailCard {
+    background-color: rgb(0, 170, 228);
+    height: 450px;
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+  }
+  .photoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .photoDetail {
+    padding-top: 40px;
+    width: 180px;
+  }
+  .textDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 70px;
+  }
+  .nameDetail {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  span {
+    padding: 3px;
+  }
+  .hidden {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+  .iconContainer {
+    display: flex;
+    width: 30px;
+    background-color: black;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 3px 10px 3px;
+    padding: 5px 0 5px 0;
+    &.sunshine {
+      background-color: yellow;
+    }
+  }
+
+  #icon {
+    margin: 3px;
+  }
+}
+@include forTablet {
+  .detailWrapper {
+    .return {
+      font-size: 18px;
+    }
+    .nameDetail {
+      font-size: 20px;
+    }
+    span {
+      font-size: 18px;
+    }
+  }
+}
+
+@include forPc {
+  .detailWrapper {
+    .return {
+      margin-left: 550px;
+    }
+    .detailCard {
+      height: 350px;
+      width: 600px;
+      display: flex;
+      flex-direction: row;
+    }
+    .photoContainer {
+      margin-left: 50px;
+      width: 50%;
+    }
+    .photoDetail {
+      width: 250px;
+    }
+    .textDetail {
+      width: 50%;
+      margin-left: 30px;
+    }
+    .nameDetail {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    span {
+      padding: 3px;
+    }
+
+    .iconContainer {
+      display: flex;
+      flex-direction: row;
+      width: 40px;
+
+      margin: 0 3px 10px 3px;
+    }
+  }
+}

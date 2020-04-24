@@ -1,0 +1,62 @@
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30vh;
+  &.sunshine {
+    background-color: yellow;
+  }
+  .logoContainer{
+    display: flex;
+    justify-content: center;
+  }
+  .logo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 250px;
+  }
+  .dayMode {
+    width: 100px;
+    align-self: center;
+    border: solid 1px white;
+    border-radius: 15px;
+    font-size: 12px;
+    background-color: white;
+    opacity: 0.8;
+    color: grey;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    &:hover {
+      border: 2px solid rgb(0, 170, 228);
+    }
+  }
+}
+@include forTablet {
+  .headerContainer {
+  .logo{
+    width: 350px;
+  }
+  .dayMode{
+    height: 30px;
+    line-height: 1.67;
+  }
+
+  }
+}
+
+
+ @include forPc {
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .logo {
+    padding-right: 90px;
+    width: 400px;
+  }
+}
+ }
