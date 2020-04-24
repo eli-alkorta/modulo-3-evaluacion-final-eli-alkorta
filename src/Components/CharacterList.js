@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 
 
 const CharacterList = (props) => {
+  const { dayMode, input, gender, species } = props;
 
   return (
-    <ul className={`characterList ${props.dayMode === true ? 'sunshine' : ''}`}>
+    <ul className={`characterList ${dayMode === true ? 'sunshine' : ''}`}>
       {props.dataList
-      .filter(characterObj => props.input === '' || characterObj.name.toLowerCase().includes(props.input.toLowerCase()))
-      .filter(characterObj => props.gender === '' || characterObj.gender === props.gender)
-      .filter(characterObj => props.species=== '' || characterObj.species === props.species)
+      .filter(characterObj => input === '' || characterObj.name.toLowerCase().includes(input.toLowerCase()))
+      .filter(characterObj => gender === '' || characterObj.gender === gender)
+      .filter(characterObj => species=== '' || characterObj.species === species)
       .map(characterObj => 
         <li key={characterObj.id} className="characterItem"> 
            <Link to={`/character/${characterObj.id}`}>

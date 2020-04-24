@@ -1,12 +1,14 @@
 import React from "react";
 
 const CharacterCard = (props) => {
+  const { photo, name, species } = props;
+
   return (
     <div className="cardContainer">
-      <img className="photo" src={props.photo} alt={props.name} />
+      <img className="photo" src={photo} alt={name} />
       <div className="textContainer">
-        <span className="name">{props.name}</span>
-        <span className="species">{props.species}</span>
+        <span className="name">{name}</span>
+        <span className="species">{species}</span>
       </div>
     </div>
   );

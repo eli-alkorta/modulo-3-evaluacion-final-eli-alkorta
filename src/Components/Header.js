@@ -2,8 +2,11 @@ import React from "react";
 import logo from "../images/logo.png";
 
 const Header = (props) => {
+
+   const { dayMode } = props;
+
 return(
-<div className={`headerContainer ${props.dayMode === true ? 'sunshine' : ''}`}>
+<div className={`headerContainer ${dayMode === true ? 'sunshine' : ''}`}>
 <div className="logoContainer">
 <img src={logo} alt="logo" className="logo"/>
 </div>

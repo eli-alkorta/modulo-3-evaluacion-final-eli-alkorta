@@ -1,11 +1,9 @@
 .filters {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexboxColumn;
   justify-content: center;
   &.sunshine {
-    background-color: yellow;
-    color: black;
+    background-color: $sunshine;
+    color: $dark;
   }
   .genderContainer {
     input {
@@ -17,16 +15,16 @@
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 5px;
-    background-color: black;
-    color: white;
-    font-size: 16px;
+    background-color: $dark;
+    color: $light;
+    font-size: $normalFont;
 
     &:focus {
-      border: 2px solid rgb(0, 170, 228);
+      border: 2px solid $cardColor;
     }
     &.sunshine {
-      background-color: white;
-      color: black;
+      background-color: $light;
+      color: $dark;
     }
   }
   .speciesContainer {
@@ -40,11 +38,11 @@
   .filters {
     .genderContainer {
       label {
-        font-size: 18px;
+        font-size: $bigFont;
       }
       .speciesContainer {
         label {
-          font-size: 18px;
+          font-size: $bigFont;
         }
       }
     }
@@ -52,12 +50,13 @@
 }
 @include forPc {
   .filters {
-    display: flex;
-    flex-direction: row;
+    @include flexboxRow;
     align-items: center;
-    justify-content: center;
     .genderContainer {
       margin-right: 80px;
+      label {
+        font-size: $normalFont;
+      }
     }
     .search {
       margin-bottom: 20px;
@@ -65,6 +64,9 @@
     }
     .speciesContainer {
       margin-left: 80px;
+      label {
+        font-size: $normalFont;
+      }
     }
   }
 }

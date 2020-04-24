@@ -1,13 +1,12 @@
 .detailWrapper {
   min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexboxColumn;
   &.sunshine {
-    background-color: yellow;
-    color: black;
+    background-color: $sunshine;
+    color: $dark;
   }
-  .return {margin-top: 10px;
+  .return {
+    margin-top: 10px;
     margin-bottom: 10px;
 
     &:hover {
@@ -15,16 +14,14 @@
     }
   }
   .detailCard {
-    background-color: rgb(0, 170, 228);
+    background-color: $cardColor;
     height: 450px;
     width: 330px;
     display: flex;
     flex-direction: column;
   }
   .photoContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexboxColumn;
   }
   .photoDetail {
     padding-top: 40px;
@@ -39,7 +36,7 @@
   }
   .nameDetail {
     font-weight: bold;
-    font-size: 18px;
+    font-size: $bigFont;
     margin-bottom: 5px;
   }
   span {
@@ -52,34 +49,30 @@
     display: block;
   }
   .iconContainer {
-    display: flex;
+    @include flexboxRow;
     width: 30px;
-    background-color: black;
+    background-color: $dark;
     border-radius: 50%;
-    justify-content: center;
     align-items: center;
     margin: 20px 3px 10px 3px;
     padding: 5px 0 5px 0;
     &.sunshine {
-      background-color: yellow;
+      background-color: $sunshine;
     }
   }
 
-  #icon {
-    margin: 3px;
-  }
 }
 @include forTablet {
   .detailWrapper {
     .return {
-      font-size: 18px;
+      font-size: $bigFont;
     }
     .nameDetail {
-      font-size: 20px;
+      font-size: $extraBigFont;
     }
     span {
-      font-size: 18px;
-    }
+      font-size: $bigFont;
+    }  
   }
 }
 
@@ -107,7 +100,7 @@
     }
     .nameDetail {
       font-weight: bold;
-      font-size: 18px;
+      font-size: $bigFont;
       margin-bottom: 5px;
     }
     span {
@@ -115,11 +108,11 @@
     }
 
     .iconContainer {
-      display: flex;
-      flex-direction: row;
       width: 40px;
-
       margin: 0 3px 10px 3px;
+      #icon {
+        margin: 2px;
+      }
     }
   }
 }

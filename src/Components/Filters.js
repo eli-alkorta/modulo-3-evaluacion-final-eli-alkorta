@@ -16,8 +16,10 @@ const Filters = (props) => {
     props.handleSpecies(event.currentTarget.value);
   }
 
+  const { dayMode, input, gender, species } = props;
+
   return (
-    <form className={`filters ${props.dayMode === true ? 'sunshine' : ''}`}>
+    <form className={`filters ${dayMode === true ? 'sunshine' : ''}`}>
       <div className="genderContainer">
         <label htmlFor="Male">Male</label>
         <input
@@ -26,7 +28,7 @@ const Filters = (props) => {
           id="Male"
           name="gender"
           value="Male"
-          checked={props.gender === "Male" ? true : false}
+          checked={gender === "Male" ? true : false}
         />
         <label htmlFor="Female">Female</label>
         <input
@@ -35,15 +37,15 @@ const Filters = (props) => {
           id="Female"
           name="gender"
           value="Female"
-          checked={props.gender === "Female" ? true : false}
+          checked={gender === "Female" ? true : false}
         />
       </div>
       <input
-        className={`search ${props.dayMode === true ? 'sunshine' : ''}`}
+        className={`search ${dayMode === true ? 'sunshine' : ''}`}
         type="text"
         name="search"
         id="search"
-        value={props.input}
+        value={input}
         onChange={updateInput}
       />
        <div className="speciesContainer">
@@ -54,7 +56,7 @@ const Filters = (props) => {
           id="Human"
           name="species"
           value="Human"
-          checked={props.species === "Human" ? true : false}
+          checked={species === "Human" ? true : false}
         />
         <label htmlFor="Alien">Alien</label>
         <input
@@ -63,7 +65,7 @@ const Filters = (props) => {
           id="Alien"
           name="species"
           value="Alien"
-          checked={props.species === "Alien" ? true : false}
+          checked={species === "Alien" ? true : false}
         />
       </div>
     </form>

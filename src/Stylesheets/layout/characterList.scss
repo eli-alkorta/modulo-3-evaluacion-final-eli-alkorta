@@ -1,14 +1,12 @@
 .characterList{
-   display: flex;
-   flex-direction: row;
+   @include flexboxRow;
    flex-wrap: wrap;
-   background-color: black;
+   background-color: $dark;
    min-height: 61vh;
-   justify-content: center;
    padding: 0;
    &.sunshine{
-      background-color: yellow;
-      color: black;
+      background-color: $sunshine;
+      color: $dark;
    }
    .characterItem{
       padding: 20px;

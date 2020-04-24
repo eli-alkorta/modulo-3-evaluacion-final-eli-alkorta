@@ -4,9 +4,9 @@
   justify-content: center;
   height: 30vh;
   &.sunshine {
-    background-color: yellow;
+    background-color: $sunshine;
   }
-  .logoContainer{
+  .logoContainer {
     display: flex;
     justify-content: center;
   }
@@ -18,10 +18,10 @@
   .dayMode {
     width: 100px;
     align-self: center;
-    border: solid 1px white;
+    border: solid 1px $light;
     border-radius: 15px;
     font-size: 12px;
-    background-color: white;
+    background-color: $light;
     opacity: 0.8;
     color: grey;
     text-transform: uppercase;
@@ -30,33 +30,29 @@
     justify-content: space-evenly;
     align-items: center;
     &:hover {
-      border: 2px solid rgb(0, 170, 228);
+      border: 2px solid $cardColor;
     }
   }
 }
 @include forTablet {
   .headerContainer {
-  .logo{
-    width: 350px;
-  }
-  .dayMode{
-    height: 30px;
-    line-height: 1.67;
-  }
-
-  }
-}
-
-
- @include forPc {
-.headerContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  .logo {
-    padding-right: 90px;
-    width: 400px;
+    .logo {
+      width: 350px;
+    }
+    .dayMode {
+      height: 30px;
+      line-height: 1.67;
+    }
   }
 }
- }
+
+@include forPc {
+  .headerContainer {
+   @include flexboxRow;
+
+    .logo {
+      padding-right: 90px;
+      width: 400px;
+    }
+  }
+}
