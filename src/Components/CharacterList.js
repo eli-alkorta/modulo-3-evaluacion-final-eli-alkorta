@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const CharacterList = (props) => {
 
   return (
-    <ul className="characterList">
+    <ul className={`characterList ${props.dayMode === true ? 'sunshine' : ''}`}>
       {props.dataList
       .filter(characterObj => props.input === '' || characterObj.name.toLowerCase().includes(props.input.toLowerCase()))
       .filter(characterObj => props.gender === '' || characterObj.gender === props.gender)

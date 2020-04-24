@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
   return (
-     <div className="detailWrapper">
+     <div className={`detailWrapper ${props.dayMode === true ? 'sunshine' : ''}`}>
         <Link to={"/"}>
        <p className="return">Volver</p>
        </Link>
@@ -17,7 +17,7 @@ const CharacterDetail = (props) => {
       </div>
       
       <div className="textDetail">   
-      <div className="iconContainer">
+      <div className={`iconContainer ${props.dayMode === true ? 'sunshine' : ''}`}>
       <i className={`fas fa-skull-crossbones ${props.character.status === 'Dead' ? "active" : "hidden"}`} id="icon"></i> 
       <i className={`far fa-user ${props.character.species === 'Human' ? "active" : "hidden"}`} id="icon"></i>   
       <i className={`fab fa-reddit-alien ${props.character.species === 'Alien' ? "active" : "hidden"}`} id="icon"></i>   

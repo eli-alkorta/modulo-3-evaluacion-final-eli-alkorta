@@ -12,16 +12,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: [],
-      characterInfo:{
+      dayMode: false,
+      characterInfo: {
         input: "",
         gender: "",
-        species: ""
-      }
+        species: "",
+      },
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleGender = this.handleGender.bind(this);
     this.handleSpecies = this.handleSpecies.bind(this);
+    this.setDayMode = this.setDayMode.bind(this);
   }
 
   componentDidUpdate() {
@@ -36,15 +38,15 @@ class App extends React.Component {
     });
     const localData = JSON.parse(localStorage.getItem("data"));
     if (localData !== null) {
-      this.setState(prevState => {
+      this.setState((prevState) => {
         return {
           ...prevState,
           characterInfo: {
             input: localData.input,
             gender: localData.gender,
             species: localData.species,
-          }
-        }
+          },
+        };
       });
     }
   }
@@ -54,36 +56,45 @@ class App extends React.Component {
     const characters = this.state.data;
     for (let characterObj of characters) {
       if (characterObj.id === parseInt(urlId)) {
-        return <CharacterDetail character={characterObj} />;
+        return <CharacterDetail dayMode={this.state.dayMode} character={characterObj} />;
       }
     }
   }
   handleInput(inputValue) {
     this.setState((prevState) => {
       return (prevState.characterInfo.input = inputValue);
-    })};
-  
+    });
+  }
+
   handleGender(inputValue) {
-    this.setState((prevState) =>{
-      return(prevState.characterInfo.gender = inputValue);
+    this.setState((prevState) => {
+      return (prevState.characterInfo.gender = inputValue);
     });
   }
   handleSpecies(inputValue) {
-    this.setState((prevState) =>{
-      return(prevState.characterInfo.species= inputValue)
+    this.setState((prevState) => {
+      return (prevState.characterInfo.species = inputValue);
+    });
+  }
+  setDayMode() {
+    this.setState((prevState) => {
+      return {
+        dayMode: !prevState.dayMode,
+      };
     });
   }
 
   render() {
     const { input, gender, species } = this.state.characterInfo;
-    const { data } = this.state;
+    const { data, dayMode } = this.state;
 
     return (
       <div className="App">
-        <Header />
+        <Header setDayMode={this.setDayMode} dayMode={dayMode} />
         <Switch>
           <Route exact path="/">
             <Filters
+              dayMode={dayMode}
               handleInput={this.handleInput}
               handleGender={this.handleGender}
               handleSpecies={this.handleSpecies}
@@ -91,7 +102,8 @@ class App extends React.Component {
               gender={gender}
               species={species}
             />
-            <CharacterList
+            <CharacterList             
+              dayMode={dayMode}
               dataList={data}
               input={input}
               gender={gender}

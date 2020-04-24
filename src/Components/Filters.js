@@ -17,7 +17,7 @@ const Filters = (props) => {
   }
 
   return (
-    <form className="filters">
+    <form className={`filters ${props.dayMode === true ? 'sunshine' : ''}`}>
       <div className="genderContainer">
         <label htmlFor="Male">Male</label>
         <input
@@ -39,7 +39,7 @@ const Filters = (props) => {
         />
       </div>
       <input
-        className="search"
+        className={`search ${props.dayMode === true ? 'sunshine' : ''}`}
         type="text"
         name="search"
         id="search"

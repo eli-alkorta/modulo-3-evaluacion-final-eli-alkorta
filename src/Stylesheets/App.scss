@@ -15,17 +15,50 @@ a{
    flex-direction: row;
    justify-content: center;
    height: 30vh;
+   &.sunshine{
+      background-color: yellow;
+   }
    .logo{
       padding-top: 30px;
       padding-bottom: 30px;
+      padding-right: 90px;
       width: 400px;
    }
+   .dayMode {
+      margin-left: 40px;
+      width: 100px;
+      height: 30px;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      align-self: center;
+      margin-left: 30px;
+      border: solid 1px white;
+      border-radius: 15px;
+      background-color: transparent;
+      font-size: 12px;
+      line-height: 1.67;
+      background-color: white;
+      opacity: 0.8;
+      color:grey;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      &:hover {
+        border: 2px solid rgb(0, 170, 228);
+      }
+    }
 }
 .filters{
    display: flex;
    flex-direction: row;
    align-items: center;
    justify-content: center;
+   &.sunshine{
+      background-color: yellow;
+      color: black;
+   }
    .genderContainer{
       margin-right: 80px;
       input{
@@ -43,6 +76,10 @@ a{
       &:focus{
          border: 2px solid rgb(0, 170, 228);
       }
+      &.sunshine{
+         background-color: white;
+         color: black;
+      }
    }
    .speciesContainer{
       margin-left: 80px;
@@ -58,6 +95,10 @@ a{
    display: flex;
    flex-direction: column;
    align-items: center;
+   &.sunshine{
+      background-color: yellow;
+      color: black;
+   }
    .return{
       margin-bottom: 10px;
       margin-left: 550px;
@@ -113,7 +154,11 @@ a{
       align-items: center;
       margin: 0 3px 10px 3px;
       padding: 5px 0 5px 0;
+      &.sunshine{
+         background-color: yellow;
+      }
    }
+  
    #icon{
       margin: 3px;
    }
@@ -125,6 +170,10 @@ a{
    flex-wrap: wrap;
    background-color: black;
    min-height: 61vh;
+   &.sunshine{
+      background-color: yellow;
+      color: black;
+   }
    .characterItem{
       padding: 20px;
       .hidden{
