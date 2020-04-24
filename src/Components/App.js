@@ -12,9 +12,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: [],
-      input: "",
-      gender: "",
-      species: "",
+      characterInfo:{
+        input: "",
+        gender: "",
+        species: ""
+      }
     };
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -23,21 +25,28 @@ class App extends React.Component {
   }
 
   componentDidUpdate() {
-    localStorage.setItem("data", JSON.stringify(this.state.input));
+    localStorage.setItem("data", JSON.stringify(this.state.characterInfo));
   }
 
   componentDidMount() {
-    const localData = JSON.parse(localStorage.getItem("data"));
-    if (localData !== null) {
-      this.setState({
-        input: localData,
-      });
-    }
     fetchCharacters().then((data) => {
       this.setState({
         data: data.results,
       });
     });
+    const localData = JSON.parse(localStorage.getItem("data"));
+    if (localData !== null) {
+      this.setState(prevState => {
+        return {
+          ...prevState,
+          characterInfo: {
+            input: localData.input,
+            gender: localData.gender,
+            species: localData.species,
+          }
+        }
+      });
+    }
   }
 
   renderCharacterDetail(props) {
@@ -50,23 +59,25 @@ class App extends React.Component {
     }
   }
   handleInput(inputValue) {
-    this.setState({
-      input: inputValue,
-    });
-  }
+    this.setState((prevState) => {
+      return (prevState.characterInfo.input = inputValue);
+    })};
+  
   handleGender(inputValue) {
-    this.setState({
-      gender: inputValue,
+    this.setState((prevState) =>{
+      return(prevState.characterInfo.gender = inputValue);
     });
   }
   handleSpecies(inputValue) {
-    this.setState({
-      species: inputValue,
+    this.setState((prevState) =>{
+      return(prevState.characterInfo.species= inputValue)
     });
   }
 
   render() {
-    const { data, input, gender, species } = this.state;
+    const { input, gender, species } = this.state.characterInfo;
+    const { data } = this.state;
+
     return (
       <div className="App">
         <Header />

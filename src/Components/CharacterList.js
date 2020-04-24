@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 
 const CharacterList = (props) => {
+
   return (
-  
     <ul className="characterList">
       {props.dataList
       .filter(characterObj => props.input === '' || characterObj.name.toLowerCase().includes(props.input.toLowerCase()))
