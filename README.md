@@ -2,6 +2,8 @@
 
 Este proyecto, desarrollado con [Create React App](https://github.com/facebook/create-react-app), conecta con un API y recoge y pinta información sobre los primeros 20 personajes de la serie de animación Rick y Morty.
 
+Más allá del **Javascript** que le otorga funcionalidad, el **HTML** y **SASS** le confieren estructura y estilo. Además, algunos componentes están maquetados con **flexbox** y otros con **grid**.
+
 ## Componentes
 
 La aplicación cuenta con seis componentes: un componente de clase principal, que recoge los estados y pinta y enruta el resto de componentes funcionales (header, characterCard, characterList, characterDetail y filters).
