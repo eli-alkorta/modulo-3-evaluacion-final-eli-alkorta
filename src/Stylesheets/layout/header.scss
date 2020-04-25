@@ -48,7 +48,7 @@
 
 @include forPc {
   .headerContainer {
-   @include flexboxRow;
+    @include flexboxRow;
 
     .logo {
       padding-right: 90px;

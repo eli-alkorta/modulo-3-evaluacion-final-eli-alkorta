@@ -1,20 +1,19 @@
-.characterItem{
-   padding: 20px;
-   .cardContainer{
-      background-color: $cardColor;
-   }
+.characterItem {
+  padding: 20px;
+  .cardContainer {
+    background-color: $cardColor;
+  }
 }
-.photo{
-   width: 250px;
+.photo {
+  width: 250px;
 }
-.textContainer{
-   display: flex;
-   flex-direction: column;
+.textContainer {
+  display: flex;
+  flex-direction: column;
 }
-.name{
-   padding: 10px 0 5px 10px;
+.name {
+  padding: 10px 0 5px 10px;
 }
-.species{
-   padding: 5px 0 10px 10px;
+.species {
+  padding: 5px 0 10px 10px;
 }
-

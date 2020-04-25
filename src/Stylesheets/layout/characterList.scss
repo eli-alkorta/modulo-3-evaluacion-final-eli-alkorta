@@ -1,14 +1,14 @@
-.characterList{
-   @include flexboxRow;
-   flex-wrap: wrap;
-   background-color: $dark;
-   min-height: 61vh;
-   padding: 0;
-   &.sunshine{
-      background-color: $sunshine;
-      color: $dark;
-   }
-   .characterItem{
-      padding: 20px;
-   }
+.characterList {
+  @include flexboxRow;
+  flex-wrap: wrap;
+  background-color: $dark;
+  min-height: 61vh;
+  padding: 0;
+  &.sunshine {
+    background-color: $sunshine;
+    color: $dark;
+  }
+  .characterItem {
+    padding: 20px;
+  }
 }

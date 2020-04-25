@@ -56,10 +56,16 @@ class App extends React.Component {
     const characters = this.state.data;
     for (let characterObj of characters) {
       if (characterObj.id === parseInt(urlId)) {
-        return <CharacterDetail dayMode={this.state.dayMode} character={characterObj} />;
+        return (
+          <CharacterDetail
+            dayMode={this.state.dayMode}
+            character={characterObj}
+          />
+        );
       }
     }
   }
+
   handleInput(inputValue) {
     this.setState((prevState) => {
       return (prevState.characterInfo.input = inputValue);
@@ -102,7 +108,7 @@ class App extends React.Component {
               gender={gender}
               species={species}
             />
-            <CharacterList             
+            <CharacterList
               dayMode={dayMode}
               dataList={data}
               input={input}
