@@ -3,11 +3,11 @@ import CharacterCard from "./CharacterCard";
 import { Link } from "react-router-dom";
 
 const CharacterList = (props) => {
-  const { dayMode, input, gender, species } = props;
+  const { dayMode, input, gender, species, dataList } = props;
 
   return (
     <ul className={`characterList ${dayMode === true ? "sunshine" : ""}`}>
-      {props.dataList
+      {dataList
         .filter(
           (characterObj) =>
             input === "" ||
